@@ -13,18 +13,19 @@ const Voting = () => {
     });
 
     const [hasVoted, setHasVoted] = useState(false);
+    const [selectedCandidate, setSelectedCandidate] = useState(null);
 
     useEffect(() => {
         fetchVotes();
         const votedCandidate = localStorage.getItem("votedCandidate");
         if (votedCandidate) {
             setHasVoted(true);
+            setSelectedCandidate(votedCandidate);
         }
     }, []);
 
     const fetchVotes = async () => {
         try {
-            // const res = await axios.get("http://localhost:5000/api/leaders");https://votebackend-sudu.onrender.com/
             const res = await axios.get("https://votebackend-sudu.onrender.com/api/leaders");
             const voteData = res.data.reduce((acc, leader) => {
                 acc[leader.name] = leader.votes;
@@ -42,11 +43,13 @@ const Voting = () => {
             return;
         }
 
+        setHasVoted(true); // Disable all buttons immediately
+        setSelectedCandidate(candidate); // Highlight the selected candidate
+
         try {
             await axios.post("https://votebackend-sudu.onrender.com/api/vote", { candidate });
             toast.success(`Vote cast for ${candidate}!`);
             localStorage.setItem("votedCandidate", candidate);
-            setHasVoted(true);
             fetchVotes();
         } catch (error) {
             toast.error(error.response?.data?.message || "Voting failed!");
@@ -63,18 +66,16 @@ const Voting = () => {
             {hasVoted && <p className="alert-msg">✅ You have already voted!</p>}
 
             <div className="vote-buttons">
-                <Button className="vote-btn chandan" onClick={() => vote("chandan")} disabled={hasVoted}>
-                    🟦 Chandan ({votes.chandan})
-                </Button>
-                <Button className="vote-btn sandeep" onClick={() => vote("sandeep")} disabled={hasVoted}>
-                    🟩 Sandeep ({votes.sandeep})
-                </Button>
-                <Button className="vote-btn lalit" onClick={() => vote("lalit")} disabled={hasVoted}>
-                    🟥 Lalit ({votes.lalit})
-                </Button>
-                <Button className="vote-btn manish" onClick={() => vote("manish")} disabled={hasVoted}>
-                    🟨 Manish ({votes.manish})
-                </Button>
+                {["chandan", "sandeep", "lalit", "manish"].map((candidate) => (
+                    <Button
+                        key={candidate}
+                        className={`vote-btn ${candidate} ${selectedCandidate === candidate ? "voted" : ""}`}
+                        onClick={() => vote(candidate)}
+                        disabled={hasVoted}
+                    >
+                        {selectedCandidate === candidate ? "✅ " : ""} {candidate.toUpperCase()} ({votes[candidate]})
+                    </Button>
+                ))}
             </div>
 
             <hr className="divider" />
