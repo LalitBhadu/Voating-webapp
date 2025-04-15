@@ -1,0 +1,123 @@
+/* Background gradient */
+.voting-container {
+    background: linear-gradient(to right, #ff7eb3, #ff758c, #ff7eb3);
+    padding: 40px;
+    border-radius: 10px;
+    color: white;
+}
+
+/* Title styling */
+.title {
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Alert message */
+.alert-msg {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+/* Vote buttons styling */
+.vote-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Individual vote buttons */
+.vote-btn {
+    width: 60%;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Button colors */
+.chandan {
+    background-color: #007bff;
+    color: white;
+}
+
+.sandeep {
+    background-color: #28a745;
+    color: white;
+}
+
+.lalit {
+    background-color: #dc3545;
+    color: white;
+}
+
+.manish {
+    background-color: #ffc107;
+    color: black;
+}
+
+/* Hover effects */
+.vote-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Divider */
+.divider {
+    border-top: 2px solid white;
+    margin: 20px 0;
+}
+
+/* Vote count card */
+.vote-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+/* Vote count */
+.vote-count {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Total votes */
+.total-votes {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#ad-container {
+    display: flex;
+    min-height: 100vh;
+    background: #f0f0f0;
+}
+
+#ad-container > div {
+    background: #fff;
+}
+
+#left-ad, #right-ad {
+    width: 15%;
+    min-width: 120px;
+}
+
+#main-content {
+    flex: 1;
+    padding: 20px;
+}
+
+.poli_image{
+    width: 60px;
+    height: 50px;
+    border-radius: 40px;
+}
