@@ -3,7 +3,11 @@ const router = express.Router();
 const Leader = require("../Model/Votemodel");
 
 // Static leader names (ensure they match exactly)
+<<<<<<< HEAD
 const LEADER_NAMES = ["chandan", "sandeep", "lalit", "manish"];
+=======
+const LEADER_NAMES = ["chandan", "savitri", "sanjay", "sumit"];
+>>>>>>> c1c5880e1de2eb2dc42af6b85bf0a867f760e554
 
 router.post("/vote", async (req, res) => {
     try {

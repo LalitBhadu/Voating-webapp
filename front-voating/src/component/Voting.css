@@ -95,29 +95,3 @@
     font-size: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
-
-#ad-container {
-    display: flex;
-    min-height: 100vh;
-    background: #f0f0f0;
-}
-
-#ad-container > div {
-    background: #fff;
-}
-
-#left-ad, #right-ad {
-    width: 15%;
-    min-width: 120px;
-}
-
-#main-content {
-    flex: 1;
-    padding: 20px;
-}
-
-.poli_image{
-    width: 60px;
-    height: 50px;
-    border-radius: 40px;
-}
